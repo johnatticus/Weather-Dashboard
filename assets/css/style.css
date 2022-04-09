@@ -1,7 +1,13 @@
-/* .custom-btn {
-    background-color: blue;
+:root {
+    --deepblue: #00076b;
+}
+
+/* .custom-card-deck {
+    display: flex;
+    justify-content: space-between;
 } */
 
-.custom-card-deck {
-    justify-content: space-between;
+.custom-btn {
+    background-color: var(--deepblue);
+    
 }

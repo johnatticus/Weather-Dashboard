@@ -7,8 +7,6 @@
   <meta name="Description" content="Enter your description here" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./assets/css/style.css">
   <title>Weather Dashboard</title>
 </head>
@@ -24,15 +22,15 @@
     <!-- div row with columns inside -->
     <div class="row">
       <!-- search column w new buttons for cities searched below -->
-      <section class="col-12 col-lg-2 col-md-4 ">
+      <section class="col-12 col-lg-2 col-md-12">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-block btn-outline-primary mt-2 custom-btn" type="submit">Search</button>
+        <button type="button" class="btn btn-block btn-primary mt-2 mb-2" type="submit">Search</button>
       </section>
       <!-- column that will have rows within -->
-      <section class="col-12 col-md-8 col-lg-10">
+      <section class="col-12 col-md-12 col-lg-10">
         <!-- row within the column for current searched weather info -->
         <div class="row">
-          <div class="table-responsive mr-3">
+          <div class="table-responsive col-12">
             <table class="table table-bordered custom-table">
               <thead>
                 <tr>
@@ -45,8 +43,8 @@
         </div>
         
         <!-- row that contains the cards for 5 day forcast -->
-        <div class="row mr-0">
-          <div class="card-deck custom-card-deck">
+        <div class="row">
+          <div class="card-deck col-12 custom-card-deck">
             <div class="card">
               <h3 class="card-header">Date for 5 Day</h3>
               <div class="card-body">
