@@ -15,88 +15,85 @@
   <nav class="navbar navbar-dark bg-dark text-white mb-2">
     <div class="container-fluid ">
       <span class="navbar-brand mb-0 h2">Weather Dashboard</span>
+      <span class="navbar-text text-white">powered by Open Weather API</span>
     </div>
   </nav>
   <!-- bootstrap container set to fluid so it changes with screen size -->
-  <main class="container-fluid">
-    <!-- div row with columns inside -->
-    <div class="row">
-      <!-- search column w new buttons for cities searched below -->
-      <section class="col-12 col-lg-2 col-md-12">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button type="button" class="btn btn-block btn-outline-dark mt-2 mb-2" type="submit">Search</button>
-      </section>
+<main class="container-fluid">
+  <!-- div row with columns inside -->
+  <div class="row">
+    <!-- search column w new buttons for cities searched below -->
+    <section class="col-12 col-lg-2 col-md-12">
+      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+      <button type="button" class="btn btn-block btn-outline-dark mt-2 mb-2" type="submit">Search</button>
+    </section>
       <!-- column that will have rows within -->
-      <section class="col-12 col-md-12 col-lg-10">
-        <!-- row within the column for current searched weather info -->
-        <div class="row">
-          <div class="table-responsive col-12">
-            <table class="table table-bordered custom-table">
-              <thead>
-                <tr>
-                  <th scope="col" class="p-3"><h1>forecast</h1><h1>forecast</h1><h1>forecast</h1></th>
-                </tr>
-              </thead>
-              <tbody id="project-display"></tbody>
-            </table>
-          </div>
+    <section class="col-12 col-md-12 col-lg-10">
+      <!-- row within the column for current searched weather info -->
+      <div class="row">
+        <div class="table-responsive col-12">
+          <table class="table table-bordered custom-table">
+            <thead>
+              <tr>
+                <th scope="col" class="p-3"><h1>forecast</h1><h1>forecast</h1><h1>forecast</h1></th>
+              </tr>
+            </thead>
+          </table>
         </div>
+      </div>
         
-        <!-- row that contains the cards-deck and cards for 5 day forcast -->
-        <div class="row">
-          <div class="card-deck col-12 col-lg-12 custom-card-deck">
-            <div class="card">
-              <h4 class="card-header bg-secondary text-white">Date for 5 Day</h4>
+      <!-- row that contains the cards-deck and cards for 5 day forcast -->
+      <div class="row d-flex justify-content-between">
+        <div class="card-deck col-12 col-lg-12 custom-card-deck pr-0">
+          <div class="card">
+            <h4 class="card-header bg-secondary text-white">Date for 5 Day</h4>
               <div class="card-body">
                 <div class="card-text">
                   This is where the weather for this day goes.
                 </div>
               </div>
-            </div>
+          </div>
 
-        <div class="card">
-          <h4 class="card-header bg-secondary text-white">Date for 5 Day</h4>
-          <div class="card-body">
-            <div class="card-text">
-              This is where the weather for this day goes.
-            </div>
+          <div class="card">
+            <h4 class="card-header bg-secondary text-white">Date for 5 Day</h4>
+              <div class="card-body">
+                <div class="card-text">
+                  This is where the weather for this day goes.
+                </div>
+              </div>
+          </div>
+
+          <div class="card">
+            <h4 class="card-header bg-secondary text-white">Date for 5 Day</h4>
+              <div class="card-body">
+                <div class="card-text">
+                  This is where the weather for this day goes.
+                </div>
+              </div>
+          </div>
+
+          <div class="card">
+            <h4 class="card-header bg-secondary text-white">Date for 5 Day</h4>
+              <div class="card-body">
+                <div class="card-text">
+                  This is where the weather for this day goes.
+                </div>
+              </div>
+          </div>
+
+          <div class="card">
+            <h4 class="card-header bg-secondary text-white">Date for 5 Day</h4>
+              <div class="card-body">
+                <div class="card-text">
+                  This is where the weather for this day goes.
+                </div>
+              </div>
           </div>
         </div>
-
-        <div class="card">
-          <h4 class="card-header bg-secondary text-white">Date for 5 Day</h4>
-          <div class="card-body">
-            <div class="card-text">
-              This is where the weather for this day goes.
-            </div>
-          </div>
-        </div>
-
-        <div class="card">
-          <h4 class="card-header bg-secondary text-white">Date for 5 Day</h4>
-          <div class="card-body">
-            <div class="card-text">
-              This is where the weather for this day goes.
-            </div>
-          </div>
-        </div>
-
-        <div class="card">
-          <h4 class="card-header bg-secondary text-white">Date for 5 Day</h4>
-          <div class="card-body">
-            <div class="card-text">
-              This is where the weather for this day goes.
-            </div>
-          </div>
-        </div>
-        
       </div>
-        </div>
+    </section>
+  </div>
+</main>
 
-      </section>
-  </main>
-
-
-
-    </body>
-    </html>
+</body>
+</html>

@@ -1,0 +1,19 @@
+----- original nav bar ------
+
+ <nav class="navbar navbar-dark bg-dark text-white mb-2">
+    <div class="container-fluid ">
+      <span class="navbar-brand mb-0 h2">Weather Dashboard</span>
+      <span class="navbar-text text-white">powered by Open Weather API</span>
+    </div>
+  </nav>
+
+
+  ---- dark jumbotron I tried ------
+
+    <div class="jumbotron jumbotron-fluid bg-dark custom-jumbo text-white">
+    <div class="container">
+      <h1 class="display-4">Weather Dashboard</h1>
+      <p class="lead">powered by OpenWeather API</p>
+    </div>
+  </div>
+
