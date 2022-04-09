@@ -1,5 +1,5 @@
 :root {
-    --deepblue: #00076b;
+    --deepblue: #8991ff;
 }
 
 /* .custom-card-deck {
@@ -11,3 +11,7 @@
     background-color: var(--deepblue);
     
 }
+
+/* .custom-card {
+    background-color: var(--deepblue);
+} */
