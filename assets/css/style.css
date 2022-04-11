@@ -1,5 +1,7 @@
 :root {
-    --deepblue: #8991ff;
+    --stormblue: rgb(0, 14, 94);
+    --sunshineyellow: rgb(255, 255, 0);
+    --overcastgray: rgb(121, 121, 121);
 }
 
 /* .custom-card-deck {
@@ -18,4 +20,8 @@
 
 .custom-jumbo {
     text-align: left;
+}
+
+.card-header-custom {
+    background-color: var(--stormblue);
 }
