@@ -3,6 +3,7 @@ var citySearchText = document.querySelector("#city-search-text");
 var citySearchButton = document.querySelector("#search-button");
 var bigForecast = document.querySelector("#today-forecast");
 var fiveDayArea = document.querySelector("#five-day-forecast");
+var forecastContainer = document.querySelector("#forecast-area")
 
 const searchHistory = [];
 
@@ -25,10 +26,12 @@ if (cityName) {
 } else {
     alert("Please enter a city name");
     }
+    console.log(cityName)
+
 }
 
 // fetch into open weather API to get data on the city entered by user
-function getWeather() {
+function getWeather(city) {
     //format the weather API key
     var apiUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid=21e6cc9ea27c09ef65e174309fcb718d";
 
@@ -57,35 +60,28 @@ var displayCurrentTemp = function(data){
     var lat = data.coord.lat;
     var lon = data.coord.lon;
 
-    cityContainerEl.textContent = "";
+    console.log(temp)
+    // fiveDayArea.textContent = "";
 
-    var cityNameDisplay = document.createElement("h2");
-    cityNameDisplay.className = "subtitle"
-    cityNameDisplay.textContent = city;
+    var todayWeatherCard = document.createElement("div")
+    todayWeatherCard.className = "card"
 
-    cityContainerEl.appendChild(cityNameDisplay);
+    var cityNameText = document.createElement("h4");
+    cityNameText.className = "card-header card-header-custom text-white";
+    cityNameText.textContent = city;
 
-    var weatherIcon = document.createElement("img");
-    weatherIcon.src = "http://openweathermap.org/img/wn/" + icon + ".png";
-    cityContainerEl.appendChild(weatherIcon);
+    forecastContainer.appendChild(todayWeatherCard);
+    todayWeatherCard.appendChild(cityNameText);
+
+
+    // var weatherIcon = document.createElement("img");
+    // weatherIcon.src = "http://openweathermap.org/img/wn/" + icon + ".png";
+    // cityContainerEl.appendChild(weatherIcon);
 
     var cityTemp = document.createElement("p");
     cityTemp.textContent = "Temperature: " + temp + "°C";
 
     cityContainerEl.appendChild(cityTemp);
-
-    var cityHumidity = document.createElement("p");
-    cityHumidity.textContent = "Humidity: " + humidity+"%";
-
-    cityContainerEl.appendChild(cityHumidity);
-
-    var wind = document.createElement("p");
-    wind.textContent = "Wind Speed: " + windSpeed +" m/s";
-
-    cityContainerEl.appendChild(wind);
-
-    getUVIndex(lat,lon);
-
 };
 
 
