@@ -24,9 +24,9 @@
   <div class="row">
     <!-- search column w new buttons for cities searched below -->
     <section class="col-12 col-lg-2 col-md-12">
-      <form id="search-form">
+      <!-- <form id="search-form"> -->
       <input class="form-control me-2" type="text" id="city-search-text" placeholder="Enter a City" aria-label="Enter a City">
-      <button type="button" class="btn btn-block btn-outline-info mt-2 mb-2" type="submit">Search</button>
+      <button type="button" id="search-button" class="btn btn-block btn-outline-info mt-2 mb-2" type="submit">Search</button>
       </form>
     </section>
       <!-- column that will have rows within -->
@@ -37,14 +37,15 @@
           <table class="table table-bordered custom-table">
             <thead>
               <tr>
-                <div class="card">
+                <div class="card" id="today-forecast">
                   <h4 class="card-header card-header-custom text-white">Today's Date Here</h4>
                     <div class="card-body">
                       <div class="card-text">
                         This is where the weather for this day goes.
                       </div>
                     </div>
-                </div>              </tr>
+                </div>              
+              </tr>
             </thead>
           </table>
         </div>
@@ -52,7 +53,7 @@
         
       <!-- row that contains the cards-deck and cards for 5 day forcast -->
       <div class="row d-flex justify-content-between">
-        <div class="card-deck col-12 col-lg-12 custom-card-deck pr-0">
+        <div class="card-deck col-12 col-lg-12 custom-card-deck pr-0" id="five-day-forecast">
           <div class="card">
             <h4 class="card-header bg-warning text-white">Date for 5 Day</h4>
               <div class="card-body">
