@@ -159,3 +159,27 @@
 
     </body>
     </html>
+
+
+    -------------- code from veronica vid -----------------
+
+// DOM elements
+let searchForm = document.querySelector("#search-form");
+let searchInput = document.querySelector("#search-form");
+let todayBox = document.querySelector("#weather-result");
+let forecastBox = document.querySelector("#five-day-forecast");
+let searchDisplayBox = document.querySelector("#search-display");
+
+    var weatherApiUrl = `http://api.openweathermap.org/geo/1.0/direct?q=London&limit=5&appid=${apiKey}`;
+
+function weatherData() {
+    fetch(weatherApiUrl)
+    .then(function(res) {
+      return res.json()        
+    })
+    .then(function(data) {
+        console.log(data);
+    })
+}
+
+weatherData();
