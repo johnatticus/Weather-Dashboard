@@ -67,7 +67,7 @@ var displayCurrentTemp = function(data){
     todayWeatherCard.className = "card"
 
     var cityNameText = document.createElement("h4");
-    cityNameText.className = "card-header card-header-custom text-white";
+    cityNameText.className = "card-header bg-info text-white";
     cityNameText.textContent = city;
 
     forecastContainer.appendChild(todayWeatherCard);
@@ -78,12 +78,12 @@ var displayCurrentTemp = function(data){
     // weatherIcon.src = "http://openweathermap.org/img/wn/" + icon + ".png";
     // cityContainerEl.appendChild(weatherIcon);
 
-    var cityTemp = document.createElement("p");
-    cityTemp.textContent = "Temperature: " + temp + "°C";
+    var cityTemp = document.createElement("div");
+    cityTemp.className = "card-body";
+    cityTemp.textContent = "Temperature: " + temp + "°F";
 
-    cityContainerEl.appendChild(cityTemp);
+    forecastContainer.appendChild(cityTemp);
 };
-
 
 
 function getFiveDay() {
