@@ -78,11 +78,23 @@ var displayCurrentTemp = function(data){
     // weatherIcon.src = "http://openweathermap.org/img/wn/" + icon + ".png";
     // cityContainerEl.appendChild(weatherIcon);
 
-    var cityTemp = document.createElement("div");
-    cityTemp.className = "card-body";
-    cityTemp.textContent = "Temperature: " + temp + "°F";
+    var todayTemp = document.createElement("div");
+    todayTemp.className = "card-body";
+    todayTemp.textContent = "Temperature: " + temp + "°F";
 
-    forecastContainer.appendChild(cityTemp);
+    todayWeatherCard.appendChild(todayTemp);
+
+    var todayHumidity = document.createElement("div");
+    todayHumidity.className = "card-body";
+    todayHumidity.textContent = "Humidity: " + humidity+"%";
+
+    todayWeatherCard.appendChild(todayHumidity);
+
+    var todayWind = document.createElement("div");
+    todayWind.className = "card-body";
+    todayWind.textContent = "Wind Speed: " + windSpeed +" m/s";
+
+    todayWeatherCard.appendChild(todayWind);
 };
 
 
