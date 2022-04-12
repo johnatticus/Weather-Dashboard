@@ -14,7 +14,7 @@ const apiKey = "21e6cc9ea27c09ef65e174309fcb718d"
 dayjs.extend(window.dayjs_plugin_utc);
 dayjs.extend(window.dayjs_plugin_timezone);
 
-// search bar and submit button. when entered and clicked, begin other functions
+// 
 var searchCityEntered = function(event){
     event.preventDefault();
 
@@ -26,19 +26,17 @@ if (cityName) {
 } else {
     alert("Please enter a city name");
     }
-    console.log(cityName)
-
+    // console.log(cityName)
 }
 
-// fetch into open weather API to get data on the city entered by user
-function getWeather(city) {
-    //format the weather API key
-    var apiUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid=21e6cc9ea27c09ef65e174309fcb718d";
+function getWeather(cityName) {
+    var geoAPI = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&units=imperial&appid=21e6cc9ea27c09ef65e174309fcb718d";
 
-    fetch(apiUrl).then(function(response){
+    fetch(geoAPI).then(function(response){
         if(response.ok){
-            response.json().then(function(data){
-                displayCurrentTemp(data);
+            response.json().then(function(APIdata){
+                displayCurrentTemp(APIdata);
+                console.log(response)
             });
         }else{
             alert("Error: " + response.statusText);
@@ -49,16 +47,16 @@ function getWeather(city) {
     })
 }
 
-// function to display the data we want from the api fetch
-var displayCurrentTemp = function(data){
+var displayCurrentTemp = function(APIdata){
     
-    var city = data.name;
-    var icon = data.weather[0].icon;
-    var temp = data.main.temp;
-    var humidity = data.main.humidity;
-    var windSpeed = data.wind.speed;
-    var lat = data.coord.lat;
-    var lon = data.coord.lon;
+    var city = APIdata.name;
+    var icon = APIdata.weather[0].icon;
+    var temp = APIdata.main.temp;
+    var humidity = APIdata.main.humidity;
+    var windSpeed = APIdata.wind.speed;
+    var lat = APIdata.coord.lat;
+    var lon = APIdata.coord.lon;
+    // var UV = data.current.uvi;
 
     console.log(temp)
 
@@ -96,6 +94,11 @@ var displayCurrentTemp = function(data){
     todayWind.textContent = "Wind Speed: " + windSpeed +" m/s";
 
     todayWeatherCard.appendChild(todayWind);
+
+    // var todayUV = document.createElement("div");
+    // todayUV.textContent = "UV rating: " + data.current.uvi;
+
+    // todayWeatherCard.appendChild(todayUV);
 };
 
 
