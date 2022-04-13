@@ -33,20 +33,28 @@ img {
 
 .extreme {
     color: violet;
+    font-weight: bold;
+    text-shadow: 0 0 2px black, 0 0 2px black, 0 0 2px black, 0 0 2px black;
 }
 
 .veryhigh {
     color: red;
+    font-weight: bold;
+    text-shadow: 0 0 3px black, 0 0 3px black, 0 0 3px black, 0 0 3px black;
 }
 
 .high {
     color: orange;
+    font-weight: bold;
+    text-shadow: 0 0 2px black, 0 0 2px black, 0 0 2px black, 0 0 2px black;
 }
 
 .moderate {
     color: yellow;
+    font-weight: bold;
+    text-shadow: 0 0 2px black, 0 0 2px black, 0 0 2px black, 0 0 2px black;
 }
 
 .low {
-    color: green;
+    background-color: green;
 }
