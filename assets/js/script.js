@@ -34,7 +34,7 @@ if (cityName) {
 function getLatLon(cityName) {
     console.log(cityName)
     if(cityName) {
-    fetch(`http://api.openweathermap.org/geo/1.0/direct?appid=21e6cc9ea27c09ef65e174309fcb718d&q=${cityName}&=&=`)
+    fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&appid=21e6cc9ea27c09ef65e174309fcb718d`)
     .then(function(res) {
       return res.json()
     })
