@@ -2,7 +2,7 @@
 var citySearchText = document.querySelector("#city-search-text");
 var citySearchButton = document.querySelector("#search-button");
 var bigForecast = document.querySelector("#today-forecast");
-var fiveDayArea = document.querySelector("#five-day-forecast");
+var fiveDayArea = document.querySelector("#five-day-deck");
 var forecastContainer = document.querySelector("#forecast-area")
 
 const apiKey = "21e6cc9ea27c09ef65e174309fcb718d"
@@ -61,6 +61,7 @@ function weatherData(data) {
       .then(function(data) {
           console.log(data);
           displayCurrentTemp(data);
+          getFiveDay(data);
       })
 }
 
@@ -152,12 +153,57 @@ var displayCurrentTemp = function(data){
     }
 };
 
+
+
+
+
+
 // function to get 5 day forecast
 // work in progress
-function getFiveDay() {
+var getFiveDay = function(data) {
 
+    var icon = data.daily[0].weather[0].icon;
+    var temp = data.daily[0].temp.day;
+    var humidity = data.daily[0].humidity;
+    var windSpeed = data.daily[0].wind_speed;
+console.log(temp)
+
+fiveDayArea.textContent = "";
+
+    for (let i = 1; i < 6; i++) {
+    var fiveDayCard = document.createElement("div")
+    fiveDayCard.className = "card"
+
+    var cityNameText = document.createElement("h4");
+    cityNameText.className = "card-header bg-primary text-white";
+
+    fiveDayArea.appendChild(fiveDayCard);
+    fiveDayCard.appendChild(cityNameText);
+
+
+    var weatherIcon = document.createElement("img");
+    weatherIcon.src = "http://openweathermap.org/img/wn/" + icon + ".png";
+    fiveDayCard.appendChild(weatherIcon);
+
+    var todayTemp = document.createElement("div");
+    todayTemp.className = "card-body";
+    todayTemp.textContent = "Temperature: " + temp + "°F";
+
+    fiveDayCard.appendChild(todayTemp);
+
+    var todayHumidity = document.createElement("div");
+    todayHumidity.className = "card-body";
+    todayHumidity.textContent = "Humidity: " + humidity+"%";
+
+    fiveDayCard.appendChild(todayHumidity);
+
+    var todayWind = document.createElement("div");
+    todayWind.className = "card-body";
+    todayWind.textContent = "Wind Speed: " + windSpeed +" m/s";
+
+    fiveDayCard.appendChild(todayWind);
 }
-
+}
 // function to display search history
 // work in progress
 function displaySearchHistory() {
