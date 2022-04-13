@@ -30,3 +30,19 @@ img {
     height: 100px;
     width: 100px;
 }
+
+.veryhigh {
+    color: red;
+}
+
+.high {
+    color: orange;
+}
+
+.moderate {
+    color: yellow;
+}
+
+.low {
+    color: green;
+}
