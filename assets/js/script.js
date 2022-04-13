@@ -34,7 +34,7 @@ if (cityName) {
 function getLatLon(cityName) {
     console.log(cityName)
     if(cityName) {
-    fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&appid=21e6cc9ea27c09ef65e174309fcb718d`)
+    fetch(`https://floating-headland-95050.herokuapp.com/http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&appid=21e6cc9ea27c09ef65e174309fcb718d`)
     .then(function(res) {
       return res.json()
     })
@@ -54,7 +54,7 @@ function weatherData(data) {
     var longitude = data[0].lon
     console.log(latitude)
     console.log(longitude);
-      fetch(`https://api.openweathermap.org/data/2.5/onecall?appid=21e6cc9ea27c09ef65e174309fcb718d&lat=${latitude}&lon=${longitude}&units=imperial`)
+      fetch(`https://floating-headland-95050.herokuapp.com/https://api.openweathermap.org/data/2.5/onecall?appid=21e6cc9ea27c09ef65e174309fcb718d&lat=${latitude}&lon=${longitude}&units=imperial`)
       .then(function(res) {
         return res.json()
       })
@@ -75,6 +75,8 @@ var displayCurrentTemp = function(data){
     var humidity = data.current.humidity;
     var windSpeed = data.current.wind_speed;
     var uvi = data.current.uvi;
+    var dT = data.current.dt;
+    console.log(dT)
     // var lat = data.coord.lat;
     // var lon = data.coord.lon;
 
