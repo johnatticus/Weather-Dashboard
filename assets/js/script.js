@@ -1,33 +1,19 @@
+// variables to traverse DOM
 var citySearchText = document.querySelector("#city-search-text");
-// var citySearchForm = document.querySelector("#search-form");
 var citySearchButton = document.querySelector("#search-button");
 var bigForecast = document.querySelector("#today-forecast");
 var fiveDayArea = document.querySelector("#five-day-forecast");
 var forecastContainer = document.querySelector("#forecast-area")
 
-const searchHistory = [];
-
-// const weatherApiUrl = "https://api.openweather.org";
 const apiKey = "21e6cc9ea27c09ef65e174309fcb718d"
 
-// var weatherApiUrl = "http://api.openweathermap.org/geo/1.0/direct?q=Orlando&limit=5&appid=21e6cc9ea27c09ef65e174309fcb718d";
-
-// function weatherData() {
-//     fetch(weatherApiUrl)
-//     .then(function(res) {
-//       return res.json()        
-//     })
-//     .then(function(data) {
-//         console.log(data);
-//     })
-// }
-
-// weatherData();
-//add timezine for day.js
+// add timezine for day.js
 dayjs.extend(window.dayjs_plugin_utc);
 dayjs.extend(window.dayjs_plugin_timezone);
 
-// 
+// get the text input from user and turn into a var
+// if nothing entered, present an alert
+// if city entered, go to next function
 var searchCityEntered = function(event){
     event.preventDefault();
 
@@ -39,9 +25,12 @@ if (cityName) {
 } else {
     alert("Please enter a city name");
     }
-    // console.log(cityName)
+
 }
 
+// fetch to api to get lat and lon for city entered.
+// once that data is fetched, move to next function
+// error coding present in case a non city name is entered but it is work in progress
 function getLatLon(cityName) {
     console.log(cityName)
     if(cityName) {
@@ -53,11 +42,14 @@ function getLatLon(cityName) {
         console.log(data);
         weatherData(data)
     })
-    }   
+} else {
+    alert("Error: " + response.statusTest)
 }
-  
-  
-  function weatherData(data) {
+}
+
+// function that takes the lat and lon and fetches weather information from one call api
+// pushes that data to the next function
+function weatherData(data) {
     var latitude = data[0].lat
     var longitude = data[0].lon
     console.log(latitude)
@@ -69,28 +61,12 @@ function getLatLon(cityName) {
       .then(function(data) {
           console.log(data);
           displayCurrentTemp(data);
-          
       })
 }
 
-// function getWeather(cityName) {
-//     var geoAPI = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&units=imperial&appid=21e6cc9ea27c09ef65e174309fcb718d";
-
-//     fetch(geoAPI).then(function(response){
-//         if(response.ok){
-//             response.json().then(function(APIdata){
-//                 displayCurrentTemp(APIdata);
-//                 console.log(response)
-//             });
-//         }else{
-//             alert("Error: " + response.statusText);
-//         }
-//     })
-//     .catch(function(error){
-//         alert("unable to connect");
-//     })
-// }
-
+// function to go into data and get the info needed
+// pushes that data to the HTML for the daily forecast
+// city name is currently work in progress as well as date
 var displayCurrentTemp = function(data){
     console.log(data.daily)
     var city = data.name;
@@ -142,6 +118,7 @@ var displayCurrentTemp = function(data){
 
     var todayUV = document.createElement("div");
     
+    // if statements to change the text color of UV based on UV index colors
     if (uvi <= 2) {
         todayUV.className = "card-body low"
         todayUV.textContent = "UV rating: " + uvi;
@@ -171,22 +148,19 @@ var displayCurrentTemp = function(data){
         todayUV.textContent = "UV rating: " + uvi;
         todayWeatherCard.appendChild(todayUV);
     }
-    // todayUV.textContent = "UV rating: " + uvi;
-    
-    // todayWeatherCard.appendChild(todayUV);
 };
 
-
+// function to get 5 day forecast
+// work in progress
 function getFiveDay() {
 
 }
 
-//function to display search history
-// function displaySearchHistory() {
+// function to display search history
+// work in progress
+function displaySearchHistory() {
 
-// }
+}
 
-
-// http://api.openweathermap.org/geo/1.0/direct?q=London&limit=5&appid={apiKey}
-
+// listen for click on search button
 citySearchButton.addEventListener("click", searchCityEntered);
