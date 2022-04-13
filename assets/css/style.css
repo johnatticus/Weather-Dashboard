@@ -31,6 +31,9 @@ img {
     width: 100px;
 }
 
+.extreme {
+    color: violet;
+}
 .veryhigh {
     color: red;
 }
