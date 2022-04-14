@@ -76,11 +76,10 @@ var displayCurrentTemp = function(data){
     var humidity = data.current.humidity;
     var windSpeed = data.current.wind_speed;
     var uvi = data.current.uvi;
-    var dT = data.current.dt;
-    console.log(dT)
+    // var dT = data.current.dt;
+    // console.log(dT)
     // var lat = data.coord.lat;
     // var lon = data.coord.lon;
-
     console.log(temp)
 
 
@@ -153,13 +152,8 @@ var displayCurrentTemp = function(data){
     }
 };
 
-
-
-
-
-
 // function to get 5 day forecast
-// work in progress
+// work in progress. for loop works, needs the date added
 var getFiveDay = function(data) {
     var days = data.daily;
     fiveDayArea.textContent = "";
