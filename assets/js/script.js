@@ -161,16 +161,18 @@ var displayCurrentTemp = function(data){
 // function to get 5 day forecast
 // work in progress
 var getFiveDay = function(data) {
+    var days = data.daily;
+    fiveDayArea.textContent = "";
 
-    var icon = data.daily[0].weather[0].icon;
-    var temp = data.daily[0].temp.day;
-    var humidity = data.daily[0].humidity;
-    var windSpeed = data.daily[0].wind_speed;
-console.log(temp)
+    for (let i = 0; i < days.length; i++) {
 
-fiveDayArea.textContent = "";
+    var icon = data.daily[i].weather[0].icon;
+    var temp = data.daily[i].temp.day;
+    var humidity = data.daily[i].humidity;
+    var windSpeed = data.daily[i].wind_speed;
+    console.log(temp)
+    console.log(days)
 
-    for (let i = 1; i < 6; i++) {
     var fiveDayCard = document.createElement("div")
     fiveDayCard.className = "card"
 
@@ -202,6 +204,10 @@ fiveDayArea.textContent = "";
     todayWind.textContent = "Wind Speed: " + windSpeed +" m/s";
 
     fiveDayCard.appendChild(todayWind);
+
+    if (i > 4) {
+        break;
+    }
 }
 }
 // function to display search history
