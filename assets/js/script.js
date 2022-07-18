@@ -5,7 +5,7 @@ var bigForecast = document.querySelector("#today-forecast");
 var fiveDayArea = document.querySelector("#five-day-deck");
 var forecastContainer = document.querySelector("#forecast-area")
 
-const apiKey = "21e6cc9ea27c09ef65e174309fcb718d"
+var apiKey = "21e6cc9ea27c09ef65e174309fcb718d"
 
 // add timezine for day.js
 dayjs.extend(window.dayjs_plugin_utc);
@@ -34,7 +34,7 @@ if (cityName) {
 function getLatLon(cityName) {
     console.log(cityName)
     if(cityName) {
-    fetch(`https://floating-headland-95050.herokuapp.com/http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&appid=21e6cc9ea27c09ef65e174309fcb718d`)
+    fetch(`https://floating-headland-95050.herokuapp.com/http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&appid=${apiKey}`)
     .then(function(res) {
       return res.json()
     })
@@ -54,7 +54,7 @@ function weatherData(data) {
     var longitude = data[0].lon
     console.log(latitude)
     console.log(longitude);
-      fetch(`https://floating-headland-95050.herokuapp.com/https://api.openweathermap.org/data/2.5/onecall?appid=21e6cc9ea27c09ef65e174309fcb718d&lat=${latitude}&lon=${longitude}&units=imperial`)
+      fetch(`https://floating-headland-95050.herokuapp.com/https://api.openweathermap.org/data/2.5/onecall?appid=${apiKey}&lat=${latitude}&lon=${longitude}&units=imperial`)
       .then(function(res) {
         return res.json()
       })
