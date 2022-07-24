@@ -71,6 +71,9 @@ function weatherData(data) {
 // pushes that data to the HTML for the daily forecast
 // city name is currently work in progress as well as date
 var displayCurrentTemp = function(city, data){
+    timezone = data.timezone;
+    var date = dayjs().tz(timezone).format('M/D/YYYY');
+    console.log(data)
     console.log(data.daily)
     // var city = data.name;
     var icon = data.current.weather[0].icon;
@@ -92,7 +95,7 @@ var displayCurrentTemp = function(city, data){
 
     var cityNameText = document.createElement("h4");
     cityNameText.className = "card-header bg-info text-white";
-    cityNameText.textContent = `${city}`;
+    cityNameText.textContent = `${city} ${date}`;
     console.log(city)
 
     forecastContainer.appendChild(todayWeatherCard);
