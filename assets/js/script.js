@@ -50,6 +50,8 @@ function getLatLon(cityName) {
 // function that takes the lat and lon and fetches weather information from one call api
 // pushes that data to the next function
 function weatherData(data) {
+    console.log(data.name)
+    var city = data[0].name;
     var latitude = data[0].lat
     var longitude = data[0].lon
     console.log(latitude)
@@ -60,7 +62,7 @@ function weatherData(data) {
       })
       .then(function(data) {
           console.log(data);
-          displayCurrentTemp(data);
+          displayCurrentTemp(city, data);
           getFiveDay(data);
       })
 }
@@ -68,9 +70,9 @@ function weatherData(data) {
 // function to go into data and get the info needed
 // pushes that data to the HTML for the daily forecast
 // city name is currently work in progress as well as date
-var displayCurrentTemp = function(data){
+var displayCurrentTemp = function(city, data){
     console.log(data.daily)
-    var city = data.name;
+    // var city = data.name;
     var icon = data.current.weather[0].icon;
     var temp = data.current.temp;
     var humidity = data.current.humidity;
@@ -90,7 +92,8 @@ var displayCurrentTemp = function(data){
 
     var cityNameText = document.createElement("h4");
     cityNameText.className = "card-header bg-info text-white";
-    cityNameText.textContent = city;
+    cityNameText.textContent = `${city}`;
+    console.log(city)
 
     forecastContainer.appendChild(todayWeatherCard);
     todayWeatherCard.appendChild(cityNameText);
