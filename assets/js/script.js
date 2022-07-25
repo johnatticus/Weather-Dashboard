@@ -161,11 +161,15 @@ var displayCurrentTemp = function(city, data){
 // function to get 5 day forecast
 // work in progress. for loop works, needs the date added
 var getFiveDay = function(data) {
+    console.log(data)
+    var timezone = data.timezone;
+    // var date = dayjs().tz(timezone).format('M/D/YYYY');
     var days = data.daily;
     fiveDayArea.textContent = "";
 
-    for (let i = 0; i < days.length; i++) {
+    for (let i = 1; i < days.length; i++) {
 
+    var dt = data.daily[i].dt;
     var icon = data.daily[i].weather[0].icon;
     var temp = data.daily[i].temp.day;
     var humidity = data.daily[i].humidity;
@@ -176,8 +180,9 @@ var getFiveDay = function(data) {
     var fiveDayCard = document.createElement("div")
     fiveDayCard.className = "card"
 
-    var cityNameText = document.createElement("h4");
+    var cityNameText = document.createElement("h5");
     cityNameText.className = "card-header bg-primary text-white";
+    cityNameText.textContent = dayjs.unix(dt).tz(timezone).format('M/D/YYYY');
 
     fiveDayArea.appendChild(fiveDayCard);
     fiveDayCard.appendChild(cityNameText);
@@ -205,7 +210,7 @@ var getFiveDay = function(data) {
 
     fiveDayCard.appendChild(todayWind);
 
-    if (i > 4) {
+    if (i > 5) {
         break;
     }
 }
