@@ -1,7 +1,7 @@
 # Weather-Dashboard
 A weather app using OpenWeather API
 
-![screenshot](/assets/images/screenshot.png)
+![screenshot](https://raw.githubusercontent.com/johnatticus/Weather-Dashboard/main/assets/images/screenshot.png)
 
 **Weather Dashboard project**
 ### *by John Hysong*
