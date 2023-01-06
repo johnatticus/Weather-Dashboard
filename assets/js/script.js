@@ -34,7 +34,7 @@ if (cityName) {
 function getLatLon(cityName) {
     console.log(cityName)
     if(cityName) {
-    fetch(`https://floating-headland-95050.herokuapp.com/http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&appid=${apiKey}`)
+    fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&appid=${apiKey}`)
     .then(function(res) {
       return res.json()
     })
@@ -50,13 +50,13 @@ function getLatLon(cityName) {
 // function that takes the lat and lon and fetches weather information from one call api
 // pushes that data to the next function
 function weatherData(data) {
-    console.log(data.name)
+    // console.log(data.name)
     var city = data[0].name;
     var latitude = data[0].lat
     var longitude = data[0].lon
     console.log(latitude)
     console.log(longitude);
-      fetch(`https://floating-headland-95050.herokuapp.com/https://api.openweathermap.org/data/2.5/onecall?appid=${apiKey}&lat=${latitude}&lon=${longitude}&units=imperial`)
+      fetch(`https://api.openweathermap.org/data/2.5/onecall?appid=${apiKey}&lat=${latitude}&lon=${longitude}&units=imperial`)
       .then(function(res) {
         return res.json()
       })
@@ -193,19 +193,19 @@ var getFiveDay = function(data) {
     fiveDayCard.appendChild(weatherIcon);
 
     var todayTemp = document.createElement("div");
-    todayTemp.className = "card-body";
+    todayTemp.className = "card-text";
     todayTemp.textContent = "Temperature: " + temp + "°F";
 
     fiveDayCard.appendChild(todayTemp);
 
     var todayHumidity = document.createElement("div");
-    todayHumidity.className = "card-body";
+    todayHumidity.className = "card-text";
     todayHumidity.textContent = "Humidity: " + humidity+"%";
 
     fiveDayCard.appendChild(todayHumidity);
 
     var todayWind = document.createElement("div");
-    todayWind.className = "card-body";
+    todayWind.className = "card-text";
     todayWind.textContent = "Wind Speed: " + windSpeed +" m/s";
 
     fiveDayCard.appendChild(todayWind);
