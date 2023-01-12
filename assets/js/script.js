@@ -30,6 +30,10 @@ function displaySearchHistory() {
       btn.setAttribute("data-search", searchStorage[i]);
       btn.textContent = searchStorage[i];
       searchHistoryContainer.append(btn);
+
+      if (i < 4) {
+        break;
+      }
     }
   }
 
@@ -96,7 +100,9 @@ function getLatLon(cityName) {
 // function that takes the lat and lon and fetches weather information from one call api
 // pushes that data to the next function
 function weatherData(data) {
+  console.log(data)
   var city = data[0].name;
+  var state = data[0].state;
   var latitude = data[0].lat;
   var longitude = data[0].lon;
   console.log(latitude);
@@ -109,7 +115,7 @@ function weatherData(data) {
     })
     .then(function (data) {
       console.log(data);
-      displayCurrentTemp(city, data);
+      displayCurrentTemp(city, state, data);
       getFiveDay(data);
     });
 }
@@ -117,7 +123,7 @@ function weatherData(data) {
 // function to go into data and get the info needed
 // pushes that data to the HTML for the daily forecast
 // city name is currently work in progress as well as date
-var displayCurrentTemp = function (city, data) {
+var displayCurrentTemp = function (city, state, data) {
   timezone = data.timezone;
   var date = dayjs().tz(timezone).format("M/D/YYYY");
   //   console.log(data);
@@ -135,7 +141,7 @@ var displayCurrentTemp = function (city, data) {
 
   var cityNameText = document.createElement("h4");
   cityNameText.className = "card-header bg-primary text-white";
-  cityNameText.textContent = `${city} ${date}`;
+  cityNameText.textContent = `${city}, ${state} ${date}`;
 
   var todayWeatherCardBody = document.createElement("div");
   todayWeatherCardBody.className = "card-body";
@@ -162,7 +168,7 @@ var displayCurrentTemp = function (city, data) {
 
   //   todayWeatherCard.appendChild(todayWind);
 
-  var todayUV = document.createElement("p");
+  var todayUV = document.createElement("span");
 
   forecastContainer.appendChild(todayWeatherCard);
   todayWeatherCard.appendChild(cityNameText);
@@ -216,6 +222,7 @@ var getFiveDay = function (data) {
     var temp = data.daily[i].temp.day;
     var humidity = data.daily[i].humidity;
     var windSpeed = data.daily[i].wind_speed;
+    var uvi = data.daily[i].uvi;
     console.log(temp);
     console.log(days);
 
@@ -244,6 +251,8 @@ var getFiveDay = function (data) {
     fiveDayWind.className = "card-text";
     fiveDayWind.textContent = "Wind Speed: " + windSpeed + " m/s";
 
+    var fiveDayUvi = document.createElement("span");
+
     fiveDayArea.appendChild(fiveDayCard);
     fiveDayCard.appendChild(fiveDayDate);
     fiveDayCard.appendChild(fiveDayCardBody);
@@ -253,6 +262,37 @@ var getFiveDay = function (data) {
       fiveDayHumidity,
       fiveDayWind
     );
+
+     // if statements to change the text color of UV based on UV index colors
+  if (uvi <= 2) {
+    fiveDayUvi.className = "card-text low";
+    fiveDayUvi.textContent = "UV rating: " + uvi;
+    fiveDayCardBody.appendChild(fiveDayUvi);
+  }
+
+  if (uvi > 2 && uvi <= 5) {
+    fiveDayUvi.className = "card-text moderate";
+    fiveDayUvi.textContent = "UV rating: " + uvi;
+    fiveDayCardBody.appendChild(fiveDayUvi);
+  }
+
+  if (uvi > 5 && uvi <= 7) {
+    fiveDayUvi.className = "card-text high";
+    fiveDayUvi.textContent = "UV rating: " + uvi;
+    fiveDayCardBody.appendChild(fiveDayUvi);
+  }
+
+  if (uvi > 7 && uvi <= 10) {
+    fiveDayUvi.className = "card-text veryhigh";
+    fiveDayUvi.textContent = "UV rating: " + uvi;
+    fiveDayCardBody.appendChild(fiveDayUvi);
+  }
+
+  if (uvi > 10) {
+    fiveDayUvi.className = "card-text extreme";
+    fiveDayUvi.textContent = "UV rating: " + uvi;
+    fiveDayCardBody.appendChild(fiveDayUvi);
+  }
 
     if (i > 4) {
       break;

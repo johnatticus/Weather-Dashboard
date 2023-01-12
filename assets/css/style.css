@@ -56,9 +56,11 @@ img {
 }
 
 .low {
-    color: green;
+    background-color: green;
+    border-radius: 5px;
+    color: white;
+    padding: 6px;
     font-weight: bold;
-
     text-shadow: 0 0 2px black, 0 0 2px black, 0 0 2px black, 0 0 2px black;
 
 }
