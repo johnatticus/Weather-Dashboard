@@ -31,9 +31,9 @@ function displaySearchHistory() {
       btn.textContent = searchStorage[i];
       searchHistoryContainer.append(btn);
 
-      if (i < 4) {
-        break;
-      }
+      // if (i < 4) {
+      //   break;
+      // }
     }
   }
 
